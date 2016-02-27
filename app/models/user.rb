@@ -24,6 +24,9 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   
+  #association
+  has_many :photos
+
   #include gravatar module to get the gravatar url
   include HasGravatar       
 
