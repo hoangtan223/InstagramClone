@@ -23,7 +23,9 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-
+  
+  #include gravatar module to get the gravatar url
+  include HasGravatar       
 
   #validate
   #required username
