@@ -11,14 +11,8 @@
 		</div>
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav navbar-right">
-			<li>
-				<div class="navbar-text">Tan Bui</div> 
-				 
-			</li>
-			<% if false %>
-				<!--<% if user_signed_in? %>
+				<% if user_signed_in? %>
 				    <li class="navbar-text"><%= current_user.email %></>
-					<li><form><a href="#" class="btn btn-success navbar-btn btn-sm" data-toggle="modal" data-target="#new-question-modal">Ask Question</a></form></li>	
 					<li>
 						<%= link_to('Logout', destroy_user_session_path, :method => :delete)%>
 					</li>
@@ -26,7 +20,6 @@
 					<li>
 						<%= link_to('Login', new_user_session_path) %>
 					</li>
-				<% end %> -->
 			<% end %>
 			</ul>
 		</div>
