@@ -18,16 +18,12 @@
 #  username               :string
 #
 
-class User < ActiveRecord::Base
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+require 'test_helper'
 
+class UsersControllerTest < ActionController::TestCase
+  test "should get show" do
+    get :show
+    assert_response :success
+  end
 
-  #validate
-  #required username
-  validates :username, presence: true
-  #unique username
-  validates :username, uniqueness: true
 end

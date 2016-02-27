@@ -1,0 +1,5 @@
+<ul class="list-group">
+	<li class="list-group-item text-muted" contenteditable="false">Profile</li>
+	<li class="list-group-item text-right"><span class="pull-left"><strong class="">Joined</strong></span><%= @user.created_at.to_date %></li>
+	<li class="list-group-item text-right"><span class="pull-left"><strong class="">Last seen</strong></span><%= time_ago_in_words @user.last_sign_in_at %></li>
+</ul>
