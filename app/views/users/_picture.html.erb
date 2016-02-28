@@ -2,7 +2,7 @@
 	<div class="panel-heading" contenteditable="false">Pictures</div>
 	<div class="panel-body">
 		<div class="row">
-			<div class="col-md-4">
+			<!-- <div class="col-md-4">
 				<div class="thumbnail">
 					<img alt="300x200" src="http://lorempixel.com/600/200/people">
 				</div>
@@ -16,7 +16,14 @@
 				<div class="thumbnail">
 					<img alt="300x200" src="http://lorempixel.com/600/200/sports">
 				</div>
+			</div> -->
+			<% @photos.each do |photo|%>
+			<div class="col-md-4">
+				<div class="photo thumbnail">
+					<%= image_tag(photo.image)%>
+				</div>
 			</div>
+			<% end %>
 		</div>
 	</div>
 </div>

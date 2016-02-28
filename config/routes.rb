@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  #get 'photos/create'
   get 'users/show'
 
   devise_for :users

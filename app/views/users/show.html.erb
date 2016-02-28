@@ -4,7 +4,7 @@
 			<h1 class="profile_username"><%= @user.username%></h1>
 			<p class="profile_email"><%= @user.email %></p>
 		</div>
-		<div class="col-sm-2"><a class="pull-right"><img title="profile image" class="img-circle img-responsive" src="<%= @user.gravatar %>"></a>
+		<div class="col-sm-2"><a class="pull-right"><img title="profile image" class="img-circle img-responsive" src="<%= @user.gravatar + "?s=200"%>"></a>
 		</div>
 	</div>
 	<br>
