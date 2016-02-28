@@ -18,14 +18,25 @@
 		<div class="photo_footer">
 			<ul>
 				<li>
-					<a href=""><%= current_user.username %></a>
+					<a href=""><%= photo.user.username %></a>
 					<span><%= photo.caption %></span>
 				</li>
+				<% photo.comments.each do |comment| %>
 				<li>
-					<a href="">User1</a>
-					<span>comment sample</span>
+					<%= link_to comment.user.username, user_path(comment.user) %>
+					<%= comment.comment %>
 				</li>
+				<% end %>
 			</ul>
+			<% if user_signed_in? %>
+				<div class="add_comment">
+					<%= form_tag comments_path, class: "comment_form" do %>
+					<%= hidden_field_tag :'comment[user_id]', current_user.id, class: "form-control"%>
+					<%= hidden_field_tag :'comment[photo_id]', photo.id, class: "form-control"%>
+					<%= text_field_tag :'comment[comment]', '', placeholder: "Add your comment", class: "form-control" %>
+					<% end %>
+				</div>
+			<% end %>
 		</div>
 	</article>
 	<% end %>
