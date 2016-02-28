@@ -26,6 +26,7 @@ class User < ActiveRecord::Base
   
   #association
   has_many :photos
+  has_many :comments
 
   #include gravatar module to get the gravatar url
   include HasGravatar       

@@ -1,28 +1,32 @@
-<% @photos.each do |photo| %>
-<article class="photo_article">
-	<header class="photo_header">
-		<a href="">
-			<img title="picture_avatar" class="img-circle img-responsive" src="<%= photo.user.gravatar + "?s=50" %>"></a>
-		</a>
-		<a href=""><%= photo.user.username %></a>
-		<span href="" class="photo_time">
-			<%= time_ago_in_words photo.created_at %>
-		</span>
-	</header>
-	<div class="photo_content">
-		<%= image_tag(photo.image)%>
-	</div>
-	<div class="photo_footer">
-		<ul>
-			<li>
-				<a href=""><%= current_user.username %></a>
-				<span><%= photo.caption %></span>
-			</li>
-			<li>
-				<a href="">User1</a>
-				<span>comment sample</span>
-			</li>
-		</ul>
-	</div>
-</article>
-<% end %>
+<div class="photos_page">
+	<% @photos.each do |photo| %>
+	<article class="photo_article">
+		<header class="photo_header col-sm-12">
+			<a href="" class="col-sm-2">
+				<img title="picture_avatar" class="img-circle img-responsive" src="<%= photo.user.gravatar + "?s=50" %>"></a>
+			</a>
+			<div class="col-sm-8">
+				<%= link_to photo.user.username, user_path(photo.user) %>
+			</div>
+			<span href="" class="photo_time col-sm-2">
+				<%= time_ago_in_words photo.created_at %>
+			</span>
+		</header>
+		<div class="photo_content">
+			<%= image_tag(photo.image)%>
+		</div>
+		<div class="photo_footer">
+			<ul>
+				<li>
+					<a href=""><%= current_user.username %></a>
+					<span><%= photo.caption %></span>
+				</li>
+				<li>
+					<a href="">User1</a>
+					<span>comment sample</span>
+				</li>
+			</ul>
+		</div>
+	</article>
+	<% end %>
+</div>

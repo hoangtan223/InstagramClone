@@ -2,13 +2,52 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+body {
+	background-color: #fafafa;
+
+	.navbar {
+		background-color: white;
+	}
+
+	.photos_page {
+		flex-grow: 1;
+	    margin: 0 auto;
+	    max-width: 600px;
+	    width: 100%;
+	}
+}
+
+
 
 .new_user {
-  max-width: 330px;
-  padding: 15px;
-  margin: 0 auto;
+	max-width: 330px;
+	padding: 15px;
+	margin: 0 auto;
 
-  input {
-  	margin-bottom: 10px;
-  }
+	input {
+	margin-bottom: 10px;
+	}
+}
+
+.photo_article {
+	background-color: white;
+	border: 1px solid #edeeee;
+	border-radius: 3px;
+	margin-bottom: 60px;
+	margin-left: -1px;
+	margin-right: -1px;
+
+	.photo_header {
+	     height: 64px;
+    	padding: 14px 20px;
+	}
+
+	.photo_content {
+      border: 1px solid #edeeee;
+      text-align: center;
+      img{
+        height: 270px;
+        margin: 0 auto;
+      }
+    }
 }
