@@ -1,0 +1,2 @@
+<h2>There is <%= @photos.count %> result for searching <%= @keywords.map { |i| "'" + i.to_s + "'" }.join(",") %></h2>
+<%= render 'photos/photo' %>

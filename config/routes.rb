@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  #get 'hashtags/searchtag'
+
+  get 'hashtags/show'
+
   get 'comments/create'
 
   #get 'photos/create'
@@ -9,6 +13,9 @@ Rails.application.routes.draw do
   resources :users, only: :show
   resources :photos
   resources :comments, only: :create
+  resources :hashtags
+
+  post '/searchtags/', to: 'hashtags#searchtag', as: 'searchtag'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
