@@ -16,7 +16,7 @@
 			<%= image_tag(photo.image)%>
 		</div>
 		<div class="photo_footer">
-			<ul>
+			<ul class="comment_list">
 				<li>
 					<a href=""><%= photo.user.username %></a>
 					<span><%= photo.caption %></span>
@@ -30,7 +30,7 @@
 			</ul>
 			<% if user_signed_in? %>
 				<div class="add_comment">
-					<%= form_tag comments_path, class: "comment_form" do %>
+					<%= form_tag comments_path, class: "comment_form", :remote => true, :role => "form" do %>
 					<%= hidden_field_tag :'comment[user_id]', current_user.id, class: "form-control"%>
 					<%= hidden_field_tag :'comment[photo_id]', photo.id, class: "form-control"%>
 					<%= text_field_tag :'comment[comment]', '', placeholder: "Add your comment", class: "form-control" %>

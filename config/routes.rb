@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'comments/create'
+
   #get 'photos/create'
   get 'users/show'
 
@@ -6,7 +8,7 @@ Rails.application.routes.draw do
   get 'home/index'
   resources :users, only: :show
   resources :photos
-  resources :comments
+  resources :comments, only: :create
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
