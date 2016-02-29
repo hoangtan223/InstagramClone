@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160228062339) do
+ActiveRecord::Schema.define(version: 20160229160357) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,20 @@ ActiveRecord::Schema.define(version: 20160228062339) do
   end
 
   add_index "comments", ["photo_id"], name: "index_comments_on_photo_id", using: :btree
+
+  create_table "hashtags", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "hashtags_photos", id: false, force: :cascade do |t|
+    t.integer "hashtag_id", null: false
+    t.integer "photo_id",   null: false
+  end
+
+  add_index "hashtags_photos", ["hashtag_id", "photo_id"], name: "index_hashtags_photos_on_hashtag_id_and_photo_id", using: :btree
+  add_index "hashtags_photos", ["photo_id", "hashtag_id"], name: "index_hashtags_photos_on_photo_id_and_hashtag_id", using: :btree
 
   create_table "photos", force: :cascade do |t|
     t.string   "image"

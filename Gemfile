@@ -42,6 +42,8 @@ gem 'annotate'
 # Twitter Bootstrap gem 
 gem 'bootstrap-sass', '~> 3.3.6'
 
+gem 'twitter-text', '~> 1.13', '>= 1.13.3'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
