@@ -19,23 +19,35 @@
 			<ul class="comment_list">
 				<li>
 					<a href=""><%= photo.user.username %></a>
-					<span><%= photo.caption %></span>
+					<% photo.caption.split(' ').each do |word| %>
+					<% if word.first.eql?("#") %>
+					<%= link_to word, photos_path(:hashtag => word[1 ..-1]) %>
+					<% else %>
+					<%= word %>
+					<% end %>
+					<% end %>
 				</li>
 				<% photo.comments.each do |comment| %>
 				<li>
 					<%= link_to comment.user.username, user_path(comment.user) %>
-					<%= comment.comment %>
+					<% comment.comment.split(' ').each do |word| %>
+					<% if word.first.eql?("#") %>
+					<%= link_to word, photos_path(:hashtag => word[1 ..-1]) %>
+					<% else %>
+					<%= word %>
+					<% end %>
+					<% end %>
 				</li>
 				<% end %>
 			</ul>
 			<% if user_signed_in? %>
-				<div class="add_comment">
-					<%= form_tag comments_path, class: "comment_form", :remote => true, :role => "form" do %>
-					<%= hidden_field_tag :'comment[user_id]', current_user.id, class: "form-control"%>
-					<%= hidden_field_tag :'comment[photo_id]', photo.id, class: "form-control"%>
-					<%= text_field_tag :'comment[comment]', '', placeholder: "Add your comment", class: "form-control" %>
-					<% end %>
-				</div>
+			<div class="add_comment">
+				<%= form_tag comments_path, class: "comment_form", :remote => true, :role => "form" do %>
+				<%= hidden_field_tag :'comment[user_id]', current_user.id, class: "form-control"%>
+				<%= hidden_field_tag :'comment[photo_id]', photo.id, class: "form-control"%>
+				<%= text_field_tag :'comment[comment]', '', placeholder: "Add your comment", class: "form-control" %>
+				<% end %>
+			</div>
 			<% end %>
 		</div>
 	</article>
