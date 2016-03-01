@@ -41,9 +41,10 @@ gem 'devise'
 gem 'annotate'
 # Twitter Bootstrap gem 
 gem 'bootstrap-sass', '~> 3.3.6'
-
+# use Twitter-text to extract hashtag word from string
 gem 'twitter-text', '~> 1.13', '>= 1.13.3'
-
+# use Carrierwave to upload file to S3 
+gem 'carrierwave'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
