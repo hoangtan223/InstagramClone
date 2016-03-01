@@ -19,7 +19,7 @@ class Photo < ActiveRecord::Base
 
 	before_save :generate_tags
 
-	#Description: generate tag entities if the caption contains any
+	#Description: generate tag entities if the caption contains any using Twitter extractor to extract tags
 	def generate_tags
 		tags = Twitter::Extractor.extract_hashtags(caption)
 		tags.each do |tag|
@@ -30,5 +30,22 @@ class Photo < ActiveRecord::Base
 				hashtags.build(:name => tag)
 			end
 		end
+	end
+
+	#Description: search photos by list of hashtags
+	def self.search_by_tags(keywords)
+		if keywords.empty?
+			return order(:created_at => :desc)
+		end
+
+		photos = []
+		keywords.each do |keyword|
+			hashtag = Hashtag.find_by_name(keyword) 
+			if hashtag
+				photos.concat(hashtag.photos)
+			end
+		end
+
+		return photos
 	end
 end
