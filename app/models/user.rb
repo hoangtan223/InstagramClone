@@ -32,8 +32,6 @@ class User < ActiveRecord::Base
   include HasGravatar       
 
   #validate
-  #required username
-  validates :username, presence: true
   #unique username
-  validates :username, uniqueness: true
+  #validates :username, presence: true, uniqueness: true
 end
