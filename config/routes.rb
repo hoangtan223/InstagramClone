@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   #get 'photos/create'
   get 'users/show'
 
-  devise_for :users
+  devise_for :users, :controllers => { registrations: 'registrations' }
   get 'home/index'
   resources :users, only: :show
   resources :photos
