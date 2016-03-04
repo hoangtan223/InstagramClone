@@ -4,7 +4,7 @@ $(document).ready(function() {
       data = response.responseJSON;
       if (data.success){
       	var comment_list = $(this).parent().prev();
-      	var newComment = "<li><a href=/user/" + data.user_id + ">"+ data.username +"</a> " + data.comment +"</li>"
+      	var newComment = "<li class=\"row\"><a href=\"/user/" + data.user_id + "\" class=\"col-xs-1\" username>"+ data.username +"</a><div class=\"col-xs-9\"> " + data.comment +"</div></li>"
         comment_list.append(newComment);
         $(this).find("#comment_comment").val("");
         $(this).find("#comment_comment").blur();

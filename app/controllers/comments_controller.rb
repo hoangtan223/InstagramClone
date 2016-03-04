@@ -29,6 +29,17 @@ class CommentsController < ApplicationController
 		end
 	end
 
+	def destroy
+		@comment = Comment.find(params[:id])
+		@comment.destroy
+
+		respond_to do |format|
+			format.html { redirect_to photos_url}
+			format.json { head :no_content }
+			format.js   { render :layout => false }
+		end
+	end
+
 	private
 	def comment_params
 		params.require(:comment).permit(:user_id, :photo_id, :comment)
