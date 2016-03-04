@@ -3,6 +3,7 @@
 # InstagramSSS
 A simple clone of Instagram web application using Ruby On Rails
 - Storage: using AWS S3 to store uploaded photo.
+
 ## Installation
 - Setup database info in /config/database.yml
 - Config the S3 Environment variables: ENV['AWS_ACCESS_KEY_ID'], ENV['AWS_SECRET_ACCESS_KEY'], ENV['S3_REGION'],ENV['FOG_DIRECTORY']
