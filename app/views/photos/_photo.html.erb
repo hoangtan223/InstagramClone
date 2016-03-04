@@ -18,7 +18,8 @@
 		<div class="photo_footer">
 			<ul class="comment_list">
 				<li>
-					<a href="" class="username"><%= photo.user.username %></a>
+					
+					<%= link_to photo.user.username, user_path(photo.user), :class => "username" %>
 					<% photo.caption.split(' ').each do |word| %>
 					<% if word.first.eql?("#") %>
 					<%= link_to word, photos_path(:hashtag => word[1 ..-1]) %>
@@ -28,7 +29,7 @@
 					<% end %>
 				</li>
 				<% photo.comments.each do |comment| %>
-				<li class="row">
+				<li class="row row-list">
 					<%= link_to comment.user.username, user_path(comment.user), :class => "username col-xs-2" %>
 					<div class="comment_content col-xs-8">
 					<% comment.comment.split(' ').each do |word| %>

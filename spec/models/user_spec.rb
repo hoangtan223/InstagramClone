@@ -27,7 +27,7 @@ describe User do
 	end
 
 	#test gravatar module, test data from gratavar.com
-	describe "gravatar" do
+	describe "gravatar module" do
 		it 'generate a valid gravatar link with email' do
 			user1.email = "myemailaddress@example.com"
 			expect(user1.gravatar).to eq("http://www.gravatar.com/avatar/0bc83cb571cd1c50ba6f3e8a78ef1346")

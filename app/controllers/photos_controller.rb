@@ -11,6 +11,8 @@
 #
 
 class PhotosController < ApplicationController
+	before_filter :authenticate_user!, :only => :create
+
 	def create
 		@photo = Photo.create(photo_params)
 		redirect_to current_user
