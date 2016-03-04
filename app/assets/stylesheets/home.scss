@@ -3,6 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 body {
+
 	background-color: #fafafa;
 
 	.navbar {
@@ -38,17 +39,43 @@ body {
 	margin-left: -1px;
 	margin-right: -1px;
 
+	.username {
+    		color: #125688;
+    		font-weight: 500;
+    	}
+
 	.photo_header {
 	     height: 64px;
     	padding: 14px 20px;
+
+    	.gravatar {
+    		padding: 0px;
+    	}
+    	.username {
+    		margin-top: 8px; 
+    		font-size: 16px;
+    	}
+    	.photo_time {
+    		margin-top: 8px;
+    		text-align: right;
+    	}
 	}
 
 	.photo_content {
       border: 1px solid #edeeee;
       text-align: center;
+      padding-top: 20px;
       img{
-        height: 270px;
+        height: 300px;
         margin: 0 auto;
       }
+    }
+
+    .photo_footer {
+    	margin: 10px 0px 15px 0px;
+
+    	.comment_list {
+    		list-style-type: none;
+    	}
     }
 }

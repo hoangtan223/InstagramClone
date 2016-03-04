@@ -1,14 +1,14 @@
 <div class="photos_page">
 	<% @photos.each do |photo| %>
 	<article class="photo_article">
-		<header class="photo_header col-sm-12">
-			<a href="" class="col-sm-2">
+		<header class="photo_header col-xs-12">
+			<a href="" class="col-xs-1 gravatar">
 				<img title="picture_avatar" class="img-circle img-responsive" src="<%= photo.user.gravatar + "?s=50" %>"></a>
 			</a>
-			<div class="col-sm-8">
+			<div class="col-xs-8 username">
 				<%= link_to photo.user.username, user_path(photo.user) %>
 			</div>
-			<span href="" class="photo_time col-sm-2">
+			<span href="" class="photo_time col-xs-3">
 				<%= time_ago_in_words photo.created_at %>
 			</span>
 		</header>
@@ -18,7 +18,7 @@
 		<div class="photo_footer">
 			<ul class="comment_list">
 				<li>
-					<a href=""><%= photo.user.username %></a>
+					<a href="" class="username"><%= photo.user.username %></a>
 					<% photo.caption.split(' ').each do |word| %>
 					<% if word.first.eql?("#") %>
 					<%= link_to word, photos_path(:hashtag => word[1 ..-1]) %>
@@ -29,7 +29,7 @@
 				</li>
 				<% photo.comments.each do |comment| %>
 				<li>
-					<%= link_to comment.user.username, user_path(comment.user) %>
+					<%= link_to comment.user.username, user_path(comment.user), :class => "username" %>
 					<% comment.comment.split(' ').each do |word| %>
 					<% if word.first.eql?("#") %>
 					<%= link_to word, photos_path(:hashtag => word[1 ..-1]) %>

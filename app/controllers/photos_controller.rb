@@ -21,6 +21,11 @@ class PhotosController < ApplicationController
 		@photos = Photo.search_by_tags(@keywords)
 	end
 
+	def show
+		@photos = Array.new
+		@photos << Photo.find(params[:id])
+	end
+
 	private
 	def photo_params
 		params.require(:photo).permit(:image, :caption, :user_id)

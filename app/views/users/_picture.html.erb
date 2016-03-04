@@ -20,7 +20,7 @@
 			<% @photos.each do |photo|%>
 			<div class="col-md-4">
 				<div class="photo thumbnail">
-					<%= image_tag(photo.image)%>
+					<%= link_to image_tag(photo.image), photo_path(photo)%>
 				</div>
 			</div>
 			<% end %>
