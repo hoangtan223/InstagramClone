@@ -29,8 +29,8 @@
 				</li>
 				<% photo.comments.each do |comment| %>
 				<li class="row">
-					<%= link_to comment.user.username, user_path(comment.user), :class => "username col-xs-1" %>
-					<div class="comment_content col-xs-9">
+					<%= link_to comment.user.username, user_path(comment.user), :class => "username col-xs-2" %>
+					<div class="comment_content col-xs-8">
 					<% comment.comment.split(' ').each do |word| %>
 					<% if word.first.eql?("#") %>
 					<%= link_to word, photos_path(:hashtag => word[1 ..-1]) %>
@@ -39,7 +39,8 @@
 					<% end %>
 					<% end %>
 					</div>
-					<% if comment.user_id = current_user.id %>
+
+					<% if user_signed_in? && comment.user_id == current_user.id %>
 						<%= link_to 'delete', comment, method: :delete, data: { confirm: 'Are you sure?' }, :remote => true, :class => 'delete_comment col-xs-2' %> 
 					<% end %>
 				</li>
