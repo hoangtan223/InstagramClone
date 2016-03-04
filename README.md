@@ -1,11 +1,13 @@
 <snippet>
-  <content><![CDATA[
-# ${1:InstagramSSS}
+  <content>
+# InstagramSSS
 A simple clone of Instagram web application using Ruby On Rails
+- Storage: using AWS S3 to store uploaded photo.
 ## Installation
 - Setup database info in /config/database.yml
-- Config the S3 Environment variables: ENV['AWS_ACCESS_KEY_ID'], ENV['AWS_SECRET_ACCESS_KEY'], ENV['S3_REGION'], ENV['FOG_DIRECTORY']
-- create db: using command rake db:migrate
+- Config the S3 Environment variables: ENV['AWS_ACCESS_KEY_ID'], ENV['AWS_SECRET_ACCESS_KEY'], ENV['S3_REGION'],ENV['FOG_DIRECTORY']
+- Create db: using command rake db:migrate.
+
 ## Usage
 Implemented functions:
 + User registration/sign in/sign out
@@ -14,6 +16,7 @@ Implemented functions:
 + Comments may have #hashtag
 + Search photos by #hashtag
 + User profile page that shows user information as well as all his posted photos
-]]></content>
++ Unit test for photo & user model, comments_controller & photos_controller
+</content>
   <tabTrigger>readme</tabTrigger>
 </snippet>
